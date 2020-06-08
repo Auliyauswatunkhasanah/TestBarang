@@ -21,50 +21,48 @@ public class TambahData extends AppCompatActivity {
 
     private Button btSubmit;
     private EditText etKode;
-    private EditText etNama;
-
+    private EditText etnama;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tambah_data);
 
         etKode = (EditText) findViewById(R.id.editNo);
-        etNama = (EditText) findViewById(R.id.editNama);
-        btSubmit = (Button) findViewById(R.id.btnOk);
+        etnama = (EditText) findViewById(R.id.editNama);
+        btSubmit = (Button) findViewById(R.id.btnOK);
 
         database = FirebaseDatabase.getInstance().getReference();
 
         btSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!(etKode.getText().toString().isEmpty()) &&
-                        !(etNama.getText().toString().isEmpty()))
+                if (!(etKode.getText().toString().isEmpty())&&
+                        !(etnama.getText().toString().isEmpty()))
                     submitBrg(new Barang(etKode.getText().toString(),
-                            etNama.getText().toString()));
+                            etnama.getText().toString()));
                 else
-                    Toast.makeText(getApplicationContext(), "Data tidak boleh kosong", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),"Data tidak boleh kosong",
+                            Toast.LENGTH_LONG).show();
 
                 InputMethodManager imm = (InputMethodManager)
                         getSystemService(Context.INPUT_METHOD_SERVICE);
-                imm.hideSoftInputFromWindow(etKode.getWindowToken(), 0);
+                imm.hideSoftInputFromWindow(etKode.getWindowToken(),0);
             }
         });
     }
-
-    public void submitBrg(Barang brg){
-        database.child("Barang").push().setValue(brg).addOnSuccessListener(this, new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void aVoid) {
-                etKode.setText("");
-                etNama.setText("");
-                Toast.makeText(getApplicationContext(), "Data Berhasil ditambahkan", Toast.LENGTH_LONG).show();
-            }
-        });
+    public void submitBrg (Barang brg){
+        database.child("Barang").push().setValue(brg).addOnSuccessListener(this,
+                new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        etKode.setText("");
+                        etnama.setText("");
+                        Toast.makeText(getApplicationContext(),"Data berhasil ditambahkan",
+                                Toast.LENGTH_LONG).show();
+                    }
+                });
     }
-
-    public  static Intent getActIntent(Activity activity){
+    public static Intent getActIntent(Activity activity){
         return new Intent(activity, TambahData.class);
     }
-
-
 }

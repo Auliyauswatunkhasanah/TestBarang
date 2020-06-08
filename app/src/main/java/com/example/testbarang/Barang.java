@@ -12,15 +12,9 @@ public class Barang implements Serializable {
     public String getKode(){
         return kode;
     }
-    public  void setKode(String kd){
-        this.kode = kd;
-    }
-    public String getNama(){
-        return nama;
-    }
-    public void setNama(String nama) {
-        this.nama = nama;
-    }
+    public  void setKode(String kd){ this.kode = kd; }
+    public String getNama(){ return nama; }
+    public void setNama(String nama) { this.nama = nama; }
 
     @Override
     public  String toString() {
