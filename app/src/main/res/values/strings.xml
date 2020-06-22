@@ -9,4 +9,9 @@
     <string name="txtJudul2">Penambahan Data</string>
     <string name="txtJudul3">Data Barang</string>
     <string name="txtKosong"></string>
+    <string name="btEdit">Edit data</string>
+    <string name="btHapus">Hapus data</string>
+
+    <string name="cancel">Cancel</string>
+    <string name="update">Update</string>
 </resources>

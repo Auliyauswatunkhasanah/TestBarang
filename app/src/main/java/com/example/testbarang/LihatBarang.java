@@ -42,7 +42,7 @@ public class LihatBarang extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 daftarBarang = new ArrayList<>(); for (DataSnapshot noteDataSnapshot : dataSnapshot.getChildren()){
                     Barang barang = noteDataSnapshot.getValue(Barang.class);
-                    barang.setKode(noteDataSnapshot.getKey());
+                    barang.setMainKey(noteDataSnapshot.getKey());
 
                     daftarBarang.add(barang);
                 }

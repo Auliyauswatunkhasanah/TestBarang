@@ -22,6 +22,7 @@ public class TambahData extends AppCompatActivity {
     private Button btSubmit;
     private EditText etKode;
     private EditText etnama;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
